@@ -38,6 +38,14 @@ public static class ArraysTester {
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+        //
+        //STEP 1. Establish a For Loop where 'i' is the length argument
+        //STEP 2. Establish the dynamic array (list)
+        //STEP 3. Multiply the number by i. 
+        //Step 4. Store the result in the dynamic array
+        //Step 5. Repeat
+        var multiples = new List<double>(); 
+        
 
         return new double[0]; // replace this return statement with your own
     }
