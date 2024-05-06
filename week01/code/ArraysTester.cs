@@ -1,3 +1,7 @@
+using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
+using System.Globalization;
+
 public static class ArraysTester {
     /// <summary>
     /// Entry point for the tests
@@ -44,10 +48,20 @@ public static class ArraysTester {
         //STEP 3. Multiply the number by i. 
         //Step 4. Store the result in the dynamic array
         //Step 5. Repeat
+        //Step 6.Make a loop that iterates through the values of the dynamic array and stores them in the static array
+        //Step 7. Return the static array
         var multiples = new List<double>(); 
+        for(int i = 1; i<=length; i++){
+            double multiple = number*i;
+            multiples.Add(multiple);
+        }
         
-
-        return new double[0]; // replace this return statement with your own
+        double[] doubles = new double[length];
+        for(int i = 0; i<doubles.Length;i++)
+        {
+            doubles[i] = multiples[i];
+        }
+        return doubles; // replace this return statement with your own
     }
     
     /// <summary>
@@ -65,5 +79,17 @@ public static class ArraysTester {
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
+        
+        
+        //Step 1. Obtain the amount the list needs to be shifted by (using the GetRange method)
+        //Step 2. Take that number and store that number of the last values in a temporary array
+        //step 3. Remove the numbers from the end of the array for the number of values we stored. 
+        //step 4. Insert at the beginning of the Array the values stored in the temporary array
+      
+        int arrayLength = data.Count();
+        List<int> tempList = new List<int>();
+        tempList.AddRange(data.GetRange(arrayLength-amount,amount));
+        data.RemoveRange(arrayLength-amount,amount);
+        data.InsertRange(0,tempList.GetRange(0,tempList.Count()));
     }
 }
