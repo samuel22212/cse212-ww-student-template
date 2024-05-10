@@ -80,11 +80,11 @@ public static class ArraysTester {
         // be implemented by another person.
 
         
-        
-        //Step 1. Obtain the amount the list needs to be shifted by (using the GetRange method)
-        //Step 2. Take that number and store that number of the last values in a temporary array
-        //step 3. Remove the numbers from the end of the array for the number of values we stored. 
-        //step 4. Insert at the beginning of the Array the values stored in the temporary array
+        //step 1. get the length of the array and store it in a variable.
+        //Step 2. Obtain the amount the list needs to be shifted by (using the GetRange method) 
+        //Step 3. Take that number and store that number of the last values in a temporary array
+        //step 4. Remove the numbers from the end of the array for the number of values we stored. 
+        //step 5. Insert at the beginning of the Array the values stored in the temporary array 
       
         int arrayLength = data.Count();
         List<int> tempList = new List<int>();
