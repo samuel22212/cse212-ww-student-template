@@ -12,10 +12,14 @@
         players.AddPerson("Bob", 2);
         players.AddPerson("Tim", 5);
         players.AddPerson("Sue", 3);
-        // Console.WriteLine(players);    // This can be un-commented out for debug help
+        Console.WriteLine(players);    // This can be un-commented out for debug help
         while (players.Length > 0)
             players.GetNextPerson();
-        // Defect(s) Found: 
+        // Defect(s) Found: Players take their turns consecutively instead of requeueing. 
+        // Sue is added to the queue last and takes her turn first
+        // Defect Resolution: PersonQueue.cs Line 14. Enqueue was inserting at the beginning of the queue. Changed to insert at the end of the queue
+        // Test one produces desired results.
+
 
         Console.WriteLine("---------");
 
@@ -38,7 +42,7 @@
         while (players.Length > 0)
             players.GetNextPerson();
 
-        // Defect(s) Found: 
+        // Defect(s) Found: None. Produces results as expected after first fix
 
         Console.WriteLine("---------");
 
@@ -56,7 +60,10 @@
             players.GetNextPerson();
             // Console.WriteLine(players);
         }
-        // Defect(s) Found: 
+        // Defect(s) Found: Tim is not indefinitely requeued. 
+        // solution: TakingTurnsQueue.cs line 41 was changed and an if else statement added to allow for infinite requeue at less than 1. 
+        //Admittedly I was just trying solutions and was a bit surprised this worked. It shouldn't work right? The exit condition for the queue is the same as the queue 
+        //infinite requeue so shouldn't all of them be requeuing infinitely once they hit 0 or less? WHY DOES THIS WORK!!?
 
         Console.WriteLine("---------");
 
@@ -73,7 +80,7 @@
             players.GetNextPerson();
             // Console.WriteLine(players);
         }
-        // Defect(s) Found: 
+        // Defect(s) Found: None/ Same as test 3
 
         Console.WriteLine("---------");
 
@@ -83,6 +90,6 @@
         Console.WriteLine("Test 5");
         players = new TakingTurnsQueue();
         players.GetNextPerson();
-        // Defect(s) Found:
+        // Defect(s) Found: None. 
     }
 }
